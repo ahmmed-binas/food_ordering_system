@@ -1,12 +1,13 @@
 package com.binas.model;
+
 import jakarta.persistence.*;
-import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
-
+import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @Data
@@ -15,10 +16,10 @@ import java.util.ArrayList;
 public class Food {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private  String name;
+    private String name;
     private String description;
 
     private Long price;
@@ -28,10 +29,9 @@ public class Food {
 
     @Column(length = 1000)
     @ElementCollection
-    private List<String> images
+    private List<String> images = new ArrayList<>();
 
     private boolean available;
-
 
     @ManyToOne
     private Restaurant restaurant;
@@ -39,13 +39,8 @@ public class Food {
     private boolean isVegetarian;
     private boolean isSeasonal;
 
-
     @ManyToMany
-    private  List<IngredientsItem> ingrediants = new ArrayList<>();
+    private List<IngredientsItem> ingredients = new ArrayList<>();
 
     private Date creationDate;
-
-
-
-
 }

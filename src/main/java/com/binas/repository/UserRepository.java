@@ -1,2 +1,8 @@
-package com.binas.repository;public class UserRepository {
+package com.binas.repository;
+
+import com.binas.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+    public User findByEmail(String email);
 }

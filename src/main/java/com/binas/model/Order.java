@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -43,5 +44,4 @@ public class Order {
     private int totalItem;
 
     private int totalPrice;
-
 }
