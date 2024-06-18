@@ -2,6 +2,7 @@ package com.binas.model;
 
 import com.binas.dto.Restaurantdto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,10 +25,12 @@ public class User {
 
     private String email;
 
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private USER_ROLE role;
+    private USER_ROLE role = USER_ROLE.ROLE_CUSTOMER;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")

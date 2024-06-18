@@ -33,6 +33,8 @@ public class Restaurant {
     private ContactInformation contactInformation;
 
     private String openingHours;
+    
+ 
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
@@ -48,4 +50,8 @@ public class Restaurant {
     @JsonIgnore
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
+
+
+    public void setDescription(String description) {
+    }
 }
